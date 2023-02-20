@@ -1,0 +1,22 @@
+{
+  "name": "socket",
+  "version": "1.0.0",
+  "description": "socket io feed live data",
+  "main": "socket_api.js",
+  "scripts": {
+    "test": "t"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stella-te/socket.git"
+  },
+  "keywords": [
+    "k"
+  ],
+  "author": "Stella <stellavir11@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stella-te/socket/issues"
+  },
+  "homepage": "https://github.com/stella-te/socket#readme"
+}

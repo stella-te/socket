@@ -1,7 +1,6 @@
 const { io } = require("socket.io-client");
 
-const socket = io('http://university:3002');
-// const socket = io('http://localhost:3002')
+const socket = io('http://localhost:3002')
 
 /*
 let tb = document.getElementById('table');
@@ -14,9 +13,8 @@ socket.on('disconnect', () => {
   console.log('try to re-connect', socket.id, socket.connected)
 })
 
-
 socket.on('connect', () => {
-  console.log('u connected w/ ', socket.id, socket.connected)
+  console.log('u connected w/ ', socket.id, socket.connected);
 
   socket.on('io-json-emit', (msg) => {
     console.log('json data', typeof(msg), msg)
@@ -30,15 +28,7 @@ socket.on('connect', () => {
     console.log('out str data', typeof(msg), msg)
   })
 
-  socket.on('io-consumer-emit', (msg) => {
-    console.log('consumer str data', typeof(msg), msg)
-  })
-
 })
-
-
-
-
 
 
 

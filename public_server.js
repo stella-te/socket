@@ -19,7 +19,7 @@ let idx = 0;
 
 app.get('/commodity', (req, res) => {
   // res.sendFile(__dirname + '/table.html');
-
+  // json files
   return res.json(commodity_prices)
 });
 
@@ -40,6 +40,7 @@ function s_price(s, p) {
 
   for (var i=0; i<commodity_prices.length; i++) {
     if (commodity_prices[i].s == s) {
+      // p curent price [i].p
       commodity_prices[i].diff = p - commodity_prices[i].p
       commodity_prices[i].pch = commodity_prices[i].diff * 100/commodity_prices[i].p
       commodity_prices[i].p = p;
@@ -72,19 +73,19 @@ function s_price(s, p) {
     diff: 0,
     pch: 0
   }
-if (s.includes(':COM')) {
-  commodity_prices.push(obj)
-} else if (s.includes(':CUR')) {
-  currency_prices.push(obj)
-} else {
-  stock_prices.push(obj)
-}
+  if (s.includes(':COM')) {
+    commodity_prices.push(obj)
+  } else if (s.includes(':CUR')) {
+    currency_prices.push(obj)
+  } else {
+    stock_prices.push(obj)
+  }
 
 }
 
+// the old price obj
 function o_price(s, p) {
 
-  // only run on the first time when the arr is empty
   let obj = {
     s: s,
     p: p,
@@ -97,6 +98,7 @@ function o_price(s, p) {
 
 function loop_data() {
   if (did_update == false && o_prices.length > 0) {
+    // show the old price all the time
     s_price(o_prices[idx].s, o_prices[idx].p)
     idx ++;
     if (idx >= o_prices.length) {
@@ -131,6 +133,9 @@ socket.on('connect', () => {
   })
 
 })
+
+// s_price('tsla', 23)
+
 
 setInterval(function() {
   loop_data()

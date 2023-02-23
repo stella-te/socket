@@ -11,7 +11,7 @@ tb.innerHTML = 'Hi';
 let stock_prices = [];
 
 
-
+// tr row td colomn
 function update() {
   let str = '<table> <tr><td>Stock Symbol Name</td><td>Stock Price</td><td>Net Change</td><td>Percentage Change % </td></tr>';
   for (var i=0; i<stock_prices.length; i++) {
@@ -32,6 +32,7 @@ function update() {
   }
   str += '</table>';
 
+  // add to table
   tb.innerHTML = str;
 }
 
@@ -48,9 +49,8 @@ function generate() {
     })
 }
 
-generate()
+// generate()
 
-// s_price('tsla', 23)
 
 setInterval(function() {
   generate()

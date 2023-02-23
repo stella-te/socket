@@ -17,4 +17,17 @@ cnxn = pyodbc.connect(conn_str)
 cursor = cnxn.cursor()
 
 indices_data = te.getMarketsBySymbol(symbols = indices)
-indices_query = 'INSERT INTO Indices ()'
+indices_query = 'INSERT INTO Indices (Name, Symbol, Ticker, Price, Daily_Change, Percent_Change, Importance)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)'
+for item in indices_data:
+    cursor.execute(indices_query, item['Name'], item['Symbol'], item['Ticker'], item['Close'],
+    item['DailyChange'], item['DailyPercentualChange'], item['Importance'])
+
+
+# currencies_data = te.getMarketsBySymbol(symbols = currencies)
+
+cnxn.commit()
+curser.close()
+cnxn.close()
+
+# end

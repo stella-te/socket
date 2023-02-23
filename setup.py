@@ -18,7 +18,7 @@ sudo systemctl status kafka
 
 sudo rm -r kafka/
 
-sudo git clone https://github.com/stella-te/kafka
+sudo git clone https://github.com/stella-te/socket
 
 vim shift+v j c p
 nano alt+6 y c ctrl+u p

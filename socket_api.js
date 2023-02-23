@@ -53,22 +53,22 @@ const run = async () => {
   console.log('connected w/ consumer')
     await consumer.subscribe({ topic: 'stella_markets', fromBeginning: true })
     console.log('subscribed')
+
     await consumer.run({
       eachMessage: async ({ topic, partition, message }) => {
+        io.on('connection', (socket) => {
         str = message.value.toString()
         console.log('str to be sent to client', typeof(str), str)
         // convert the str received from the server to a js obj
-        obj = await JSON.parse(str)
-
-        io.on('connection', (socket) => {
+        obj = JSON.parse(str)
 
           // io emitting to all clients, including sender
           io.to('io-room').emit('io-consumer-emit', str)
           console.log('io-emit sending consumer msg to clients @ ' + new Date().toISOString()
-          + '| Message = ' + str
-        )};
-      }
-    })
+          + '| Message = ' + str)
+        })
+        }
+      })
     console.log('io emitted consumer msg str', str)
   }
 

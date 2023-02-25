@@ -3,6 +3,9 @@ cd project_x/tradingeconomics/kafka
 sudo ssh -i university.pem ubuntu@18.206.150.247
 3.239.208.210
 sudo ssh -i university.pem ubuntu@3.239.208.210
+44.199.251.117
+sudo ssh -i university.pem ubuntu@44.199.251.117
+
 
 
 cd ../../opt/stella/socket
